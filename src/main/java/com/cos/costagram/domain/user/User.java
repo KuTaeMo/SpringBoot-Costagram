@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +22,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +45,8 @@ public class User {
 	private String profileImage; // 경로로 저장할 것이기 때문에 String
 	private String provider; // 제공자 OAuth - Google, Facebook, Naver etc...
 	
-	private String role; // USER, ADMIN
+	@Enumerated(EnumType.STRING)
+	private RoleType role; // USER, ADMIN
 	
 	@CreationTimestamp
 	private Timestamp createDate;

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cos.costagram.domain.user.User;
 import com.cos.costagram.domain.user.UserRepository;
@@ -31,7 +32,7 @@ public class AuthController {
 	}	
 	
 	@PostMapping("/auth/join")
-	public String join(UserJoinReqDto userJoinReqDto) {
+	public @ResponseBody String join(UserJoinReqDto userJoinReqDto) {
 		User userEntity=userJoinReqDto.toEntity();
 		authService.회원가입(userEntity);
 		return Script.href("성공", "/auth/loginForm");
