@@ -21,13 +21,13 @@
                     <div class="login__form">
                         <h1><img src="/images/logo.jpg" alt=""></h1>
                      
-                        <div class="login__input">
+                        <form class="login__input">
                             <input type="text" name="id" placeholder="휴대폰 번호 또는 이메일 주소">
                             <input type="password" name="password" id="password" placeholder="성명">
-                            <input type="password" name="password" id="password" placeholder="사용자이름">
-                            <input type="password" name="password" id="password" placeholder="비밀번호">
+                            <input type="email" name="email" id="password" placeholder="사용자이름">
+                            <input type="text" name="name" id="password" placeholder="비밀번호">
                             <button>가입</button>
-                        </div>
+                        </form>
 
                  
                     </div>
