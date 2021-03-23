@@ -42,7 +42,7 @@ public class User {
 	private String phone;
 	private String gender;
 	
-	private String profileImage; // 경로로 저장할 것이기 때문에 String
+	private String profileImageUrl; // 경로로 저장할 것이기 때문에 String
 	private String provider; // 제공자 OAuth - Google, Facebook, Naver etc...
 	
 	@Enumerated(EnumType.STRING)
