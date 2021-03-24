@@ -1,7 +1,6 @@
-package com.cos.costagram.domain.image;
+package com.cos.costagram.domain.follow;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,13 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.cos.costagram.domain.comment.Comment;
-import com.cos.costagram.domain.likes.Likes;
-import com.cos.costagram.domain.tag.Tag;
 import com.cos.costagram.domain.user.User;
 
 import lombok.AllArgsConstructor;
@@ -28,30 +23,19 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Image {
+public class Follow {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
-	private String caption;
-	private String postImageUrl;
 	
+	@JoinColumn(name="fromUserId")
 	@ManyToOne
-	@JoinColumn(name="userId")
-	private User user;
-
-	@OneToMany(mappedBy = "image")
-	private List<Tag> tags;
+	private User fromUser; // follow한 주체
 	
-	@OneToMany(mappedBy = "image")
-	private List<Likes> likes;
-	
-	// follow 정보
-	//@OneToMany(mappedBy = "image")
-	//private List<Fo> likes;
-	
-	//comment (댓글)
-	@OneToMany(mappedBy = "image")
-	private List<Comment> comments;
+	@JoinColumn(name="toUserId")
+	@ManyToOne
+	private User toUser; // follow 된 사람
 	
 	@CreationTimestamp
 	private Timestamp createDate;
