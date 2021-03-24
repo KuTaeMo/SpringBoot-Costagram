@@ -39,6 +39,7 @@ public class Image {
 	@JoinColumn(name="userId")
 	private User user;
 
+	
 	@OneToMany(mappedBy = "image")
 	private List<Tag> tags;
 	

@@ -113,6 +113,18 @@
   cursor: pointer;
 }
 
+/*태그영역*/
+.main
+  .container
+  .story-list
+  .story-list__item
+  .sl__item__contents
+  .sl__item__contents__tag {
+  padding: 5px 15px;
+  color: #0080ff;
+  font-size: 14px;
+}
+
 /*게시물 내용*/
 .main
   .container
