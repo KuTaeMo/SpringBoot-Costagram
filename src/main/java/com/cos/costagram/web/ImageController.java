@@ -1,11 +1,14 @@
 package com.cos.costagram.web;
 
+import java.util.List;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.cos.costagram.config.auth.PrincipalDetails;
+import com.cos.costagram.domain.image.Image;
 import com.cos.costagram.service.ImageService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,6 +26,8 @@ public class ImageController {
 		// ssar -> image1(cos), image2(cos)
 		
 		//model.addAttribute("images",imageService.피드이미지()); // 사진 다 들고 이동
+		
+		
 		model.addAttribute("images",imageService.피드이미지(principalDetails.getUser().getId())); 
 		
 		return "image/feed";
