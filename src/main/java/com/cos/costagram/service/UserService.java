@@ -28,9 +28,12 @@ public class UserService {
 			return new IllegalArgumentException();
 		});
 		
+		int followState=followRepository.mFollowState(principalId, userId);
+		int followCount=followRepository.mFollowCount(userId);
+		
 		userProfileRespDto.setFollowState(true);
-		userProfileRespDto.setFollowCount(100);
-		userProfileRespDto.setImageCount(10);
+		userProfileRespDto.setFollowCount(followCount); // 내가 팔로우하고 있는 카운트
+		userProfileRespDto.setImageCount(userEntity.getImages().size());
 		userProfileRespDto.setUser(userEntity);
 		
 		return userProfileRespDto;
