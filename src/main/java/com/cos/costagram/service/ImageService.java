@@ -38,7 +38,22 @@ public class ImageService {
 		// select toUserId from follow where fromUserId=로그인아이디;
 		// select * from image where userId in (select toUserId from follow where fromUserId=3)
 		
-		return imageRepository.findFollowImage(principalId);
+		List<Image> images=imageRepository.mFeed(principalId);
+		
+		// 좋아요 하트 색깔 로직 + 좋아요 카운트 로직
+		images.forEach((image)->{
+			
+			int likeCount=image.getLikes().size();
+			image.setLikeCount(likeCount);
+			
+			image.getLikes().forEach((like)->{
+				if(like.getUser().getId()==principalId) {
+					image.setLikeState(true);
+				}
+			});
+		});
+		
+		return images;
 	}
 	
 	@Transactional

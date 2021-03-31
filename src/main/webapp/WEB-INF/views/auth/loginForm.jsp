@@ -44,8 +44,10 @@
                         <div class="login__facebook">
                             <button>
                                 <i class="fab fa-facebook-square"></i>
-                                <span>Facebook으로 로그인</span>
+                                <span><a href="/oauth2/authorization/facebook">Facebook으로 로그인</a></span>
+                                
                             </button>
+                            	<a href="/oauth2/authorization/google" style="border: 1px solid gray; border-radius: 5px; width: 200px; margin-bottom: 10px;"><img src="img/google.png" style="width: 25px;"/>구글 로그인</a>
                         </div>
                         <!-- Oauth 소셜로그인end -->
                     </div>
