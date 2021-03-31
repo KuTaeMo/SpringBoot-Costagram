@@ -34,7 +34,7 @@
 							<button onclick="clickBtn()">
 								<c:choose>
 									<c:when test="${image.likeState }">
-										<i class="fas fa-heart-active"></i>
+										<i class="fas fa-heart active"></i>
 									</c:when>
 									<c:otherwise>
 										<i class="far fa-heart"></i>
