@@ -2,6 +2,8 @@
 
 <%@ include file="../layout/header.jsp"%>
 
+<input type="hidden" id="userId" value="${dto.user.id }"/> 
+
  <!--프로필 섹션-->
     <section class="profile">
         <!--유저정보 컨테이너-->

@@ -39,7 +39,6 @@ public class Image {
 	@ManyToOne
 	@JoinColumn(name="userId")
 	private User user;
-
 	
 	@OneToMany(mappedBy = "image")
 	private List<Tag> tags;

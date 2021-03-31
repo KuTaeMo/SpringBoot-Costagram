@@ -31,7 +31,7 @@ public class UserService {
 		int followState=followRepository.mFollowState(principalId, userId);
 		int followCount=followRepository.mFollowCount(userId);
 		
-		userProfileRespDto.setFollowState(true);
+		userProfileRespDto.setFollowState(followState==1);
 		userProfileRespDto.setFollowCount(followCount); // 내가 팔로우하고 있는 카운트
 		userProfileRespDto.setImageCount(userEntity.getImages().size());
 		userProfileRespDto.setUser(userEntity);

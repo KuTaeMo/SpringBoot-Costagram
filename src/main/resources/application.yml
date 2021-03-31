@@ -37,4 +37,4 @@ spring:
       password: 1234   
 
 file:
-  path: D:/spring5/costagram/src/main/resources/upload/
+  path: C:\Users\dita_808\git\SpringBoot-Costagram/src/main/resources/upload/
