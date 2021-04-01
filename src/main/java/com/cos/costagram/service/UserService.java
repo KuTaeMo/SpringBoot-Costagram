@@ -36,6 +36,10 @@ public class UserService {
 		userProfileRespDto.setImageCount(userEntity.getImages().size());
 		userProfileRespDto.setUser(userEntity);
 		
+		userEntity.getImages().forEach((image)->{
+			image.setLikeCount(image.getLikes().size());
+		});
+		
 		return userProfileRespDto;
 	}
 }

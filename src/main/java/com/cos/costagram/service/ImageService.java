@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cos.costagram.config.auth.PrincipalDetails;
 import com.cos.costagram.domain.image.Image;
 import com.cos.costagram.domain.image.ImageRepository;
+import com.cos.costagram.domain.likes.LikesRepository;
 import com.cos.costagram.domain.tag.Tag;
 import com.cos.costagram.domain.tag.TagRepository;
 import com.cos.costagram.utils.TagUtils;
@@ -87,4 +88,11 @@ public class ImageService {
 		tagRepository.saveAll(tags);
 		
 	}
+	
+	@Transactional(readOnly = true)
+	public List<Image> 좋아요순이미지(int principalId){
+		
+		return imageRepository.mExplore(principalId);
+	}
+	
 }
