@@ -25,7 +25,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
-      
+     
   servlet:
     multipart:
       enabled: true
@@ -35,6 +35,19 @@ spring:
     user:
       name: test
       password: 1234   
+      
+    oauth2:      client:        registration:          google:
+            client-id: 688917139907-dld6lb22gg5b18sfq16i8clutcltlamb.apps.googleusercontent.com
+            client-secret: MY-LLq1VAbTHrqvehR5jL1d4
+            scope:            - email
+            - profile
+          
+          facebook:
+            client-id: 159119366054480
+            client-secret: 9d6e5e52a22918cadf7f58e97f74af49
+            scope:
+            - email 
+            - public_profile
 
 file:
-  path: D:/spring5/costagram/src/main/resources/upload/
+  path: C:\Users\dita_808\git\SpringBoot-Costagram/src/main/resources/upload/

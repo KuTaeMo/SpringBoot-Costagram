@@ -1,21 +1,45 @@
-function clickBtn() {
+function likeOrUnLike(imageId) {
   let _buttonI = event.target;
 
   if (_buttonI.classList.contains("far")) {
-    _buttonI.classList.add("fas");
-    _buttonI.classList.add("active");
-    _buttonI.classList.remove("far");
+  $.ajax({
+		  type: "POST",
+		  url: `/image/${imageId}/likes`,
+		  dataType: "json"
+	  }).done(res=>{
+		  console.log(res);
+		    _buttonI.classList.add("fas");
+		    _buttonI.classList.add("active");
+		    _buttonI.classList.remove("far");
+		    
+		    let likeCountStr  = $(`#like_count_${imageId}`).text();
+		    let likeCount = Number(likeCountStr) + 1;
+		    $(`#like_count_${imageId}`).text(likeCount);
+	  });
+    
   } else {
-    _buttonI.classList.remove("fas");
-    _buttonI.classList.remove("active");
-    _buttonI.classList.add("far");
+  
+  	$.ajax({
+		  type: "DELETE",
+		  url: `/image/${imageId}/likes`,
+		  dataType: "json"
+	  }).done(res=>{
+		  console.log(res);
+		    _buttonI.classList.remove("fas");
+		    _buttonI.classList.remove("active");
+		    _buttonI.classList.add("far");
+		    
+		    let likeCountStr  = $(`#like_count_${imageId}`).text();
+		    let likeCount = Number(likeCountStr) - 1;
+		    $(`#like_count_${imageId}`).text(likeCount);
+	  });
   }
 }
 
 function addComment(postId, username) {
   // value : 댓글을 쓸 게시글
   let commentInput = event.path[1].children[0];
-  let commentList = event.path[2].children[3];
+  let commentList = event.path[2].children[4];
 
   // 유저 아이디 필요하면 매개변수로 받아와서 넣으면 됨.
   let _data = {

@@ -26,7 +26,7 @@ document.querySelector("#subscribeBtn").onclick = (e) => {
 
 function makeSubscribeInfo(u){
   let item=`<div class="follower__item" id="follow-${u.userId}">`;
-  item+=`<div class="follower__img"><img src="/images/profile.jpeg" alt=""></div>`;
+  item+=`<div class="follower__img"><img src="/upload/${u.profileImageUrl}" alt=""  onerror="this.src='/images/person.jpeg'"/></div>`;
   item+=`<div class="follower__text">`;
   item+=`<h2>${u.username}</h2>`;
   item+=`</div>`;
@@ -133,3 +133,20 @@ document.querySelector(".modal-image").addEventListener("click", (e) => {
     document.querySelector(".modal-image").style.display = "none";
   }
 });
+
+// 회원정보수정
+function update(userId){
+        event.preventDefault();
+		let data=$("#profile_setting").serialize();
+
+		$.ajax({
+			type:"put",
+			url:"/user/"+userId,
+			data:data,
+			contentType:"application/x-www-form-urlencoded; charset=utf-8",
+			dataType:"json"
+			}).done((res)=>{
+				location.href="/user/"+userId
+				
+			})
+    }

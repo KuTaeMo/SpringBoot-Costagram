@@ -50,4 +50,4 @@ spring:
             - public_profile
 
 file:
-  path: C:\Users\dita_808\git\SpringBoot-Costagram/src/main/resources/upload/
+  path: C:\Users\KuTaeMo\git\SpringBoot-Costagram\src\main\resources/upload/
