@@ -10,6 +10,7 @@ $.ajax({
 	let images=res.data.content;
 	images.forEach((image)=>{
 		let feedBox=feedItem(image);
+		$("#feed_list").append(feedBox);
 	});
 });
 }
@@ -98,4 +99,3 @@ result+=`
 `;
    return result;
 }
-.
