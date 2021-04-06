@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.cos.costagram.config.auth.PrincipalDetails;
 import com.cos.costagram.domain.follow.Follow;
@@ -57,4 +58,11 @@ public class UserController {
 		principalDetails.setUser(userEntity);
 		return new CMRespDto<>(1,null);
 	}
+	
+	@PutMapping("/user/{id}/profileImageUrl")
+	   public @ResponseBody CMRespDto<?> profileImageUrlUpdate(@PathVariable int id, MultipartFile profileImageFile, @AuthenticationPrincipal PrincipalDetails principalDetails){
+		User userEntity=userService.회원사진변경(profileImageFile, principalDetails);
+		principalDetails.setUser(userEntity);
+	      return new CMRespDto<>(1, null);
+	   }
 }
