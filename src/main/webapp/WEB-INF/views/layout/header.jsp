@@ -38,6 +38,8 @@
 </head>
 
 <body>
+	<input tpye="hidden" id="princiapl-id" value="${principal.user.id }"/>
+	<input tpye="hidden" id="princiapl-unsername" value="${principal.user.username }"/>
     <header class="header">
         <div class="container">
             <a href="/image/feed" class="logo"><img src="/images/logo.jpg" alt=""></a>
